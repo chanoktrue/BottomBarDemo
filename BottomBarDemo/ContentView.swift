@@ -47,3 +47,41 @@ struct ContentView: View {
 #Preview {
     ContentView()
 }
+
+// Now we need to create a extension so that we set the bottom sheet to right place
+extension View {
+    @ViewBuilder
+    //Default tab bar heith is 49
+    func bottomMaskForSheet(_ height: CGFloat = 49) -> some View {
+        self.background()
+    }
+}
+
+
+//Helpers
+fileprivate struct SheetRootViewFiner: UIViewRepresentable {
+    
+    var height: CGFloat
+    
+    func makeCoordinator() -> Coordinator {
+        return Coordinator()
+    }
+    
+    func makeUIView(context: Context) -> some UIView {
+        .init()
+    }
+    
+    func updateUIView(_ uiView: UIViewType, context: Context) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+            
+        }
+    }
+    
+    class Coordinator: NSObject {
+        var isMasked = false
+    }
+}
+
+fileprivate extension UIView {
+    
+}
